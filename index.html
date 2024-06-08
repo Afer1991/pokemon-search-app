@@ -4,42 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <title>Pokémon Search App</title>
 </head>
 <body>
-  <h1>Search for Pokémon Name or ID:</h1>
-  <div>
-    <input type="text" id="search-input" required>
-    <button id="search-button">Search</button>
-  </div>
-  <div>
-    <div>
-      <p id="pokemon-name"></p>
-      <p id="pokemon-id"></p>
+  <h1>Pokémon Search App</h1>
+  <div class="container">
+    <p>Search for Pokémon Name or ID:</p>
+    <div class="input-container">
+      <input type="text" id="search-input" required>
+      <button id="search-button">Search</button>
     </div>
-    <div>
-      <p id="weight"></p>
-      <p id="height"></p>
+    <div class="pokemon-container">
+      <div class="pokemon-name">
+        <p id="pokemon-name">BULBASAUR</p>
+        <p id="pokemon-id">#1</p>
+      </div>
+      <div class="pokemon-size">
+        <p id="weight">Weight: 69</p>
+        <p id="height">Height: 7</p>
+      </div>
+      <div class="pokemon-img-container">
+        <img src="bulbasaur.png" alt="Bulbasaur">
+      </div>
+      <div id="types">
+        <div class="type grass">Grass</div>
+        <div class="type poison">Poison</div>
+      </div>
     </div>
-    <div id="types">
-
+    <div class="stats">
+      <div>Base</div>
+      <div>Stats</div>
+      <div>HP:</div>
+      <div id="hp"></div>
+      <div>Attack:</div>
+      <div id="attack"></div>
+      <div>Defense:</div>
+      <div id="defense"></div>
+      <div>Sp. Attack:</div>
+      <div id="special-attack"></div>
+      <div>Sp. Defense:</div>
+      <div id="special-defense"></div>
+      <div>Speed:</div>
+      <div id="speed"></div>
     </div>
-  </div>
-  <div>
-    <div>Base</div>
-    <div>Stats</div>
-    <div>HP:</div>
-    <div id="hp"></div>
-    <div>Attack:</div>
-    <div id="attack"></div>
-    <div>Defense:</div>
-    <div id="defense"></div>
-    <div>Sp. Attack:</div>
-    <div id="special-attack"></div>
-    <div>Sp. Defense:</div>
-    <div id="special-defense"></div>
-    <div>Speed:</div>
-    <div id="speed"></div>
   </div>
 <script src="script.js"></script>
 </body>

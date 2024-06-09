@@ -14,23 +14,41 @@ const pokeSpDefense = document.getElementById("special-defense");
 const pokeSpeed = document.getElementById("speed");
 
 
-const returnPokeStats = (pokemon) => {
-  fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemon}`)
-  .then((res) => res.json())
-  .then((data) => {
-    pokeName.innerText = data.name.toUpperCase();
-    pokeId.innerText = `#${data.id}`;
-    pokeWgt.innerText = `Weight: ${data.weight}`;
-    pokeHgt.innerText = `Height: ${data.height}`;
-    imgContainer.innerHTML = `<img src="${data.sprites.front_default}" alt="${data.name}">`;
-    pokeTypes.innerHTML = `<div class="type ${data.types[0].type.name}">${data.types[0].type.name}</div>
-                           ${data.types[1] != undefined ? `<div class=\"type ${data.types[1].type.name}\">${data.types[1].type.name}</div>`
-                                                        : ""}`;
-    pokeHp.innerText = data.stats[0].base_stat;
-    pokeAttack.innerText = data.stats[1].base_stat;
-    pokeDefense.innerText = data.stats[2].base_stat;
-    pokeSpAttack.innerText = data.stats[3].base_stat;
-    pokeSpDefense.innerText = data.stats[4].base_stat;
-    pokeSpeed.innerText = data.stats[5].base_stat;                    
-});  
+const fetchPokeStats = async (pokemon) => {
+  try {
+    const res = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemon}`);
+    const data = await res.json();
+    returnPokeStats(data);
+  } catch {
+    alert("Pokémon not found");
+  }
 };
+
+const returnPokeStats = (pokemon) => {
+  pokeName.innerText = pokemon.name.toUpperCase();
+  pokeId.innerText = `#${pokemon.id}`;
+  pokeWgt.innerText = `Weight: ${pokemon.weight}`;
+  pokeHgt.innerText = `Height: ${pokemon.height}`;
+  imgContainer.innerHTML = `<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">`;
+  pokeTypes.innerHTML = `<div class="type ${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</div>
+                           ${pokemon.types[1] != undefined ? `<div class=\"type ${pokemon.types[1].type.name}\">${pokemon.types[1].type.name}</div>`
+                                                        : ""}`;
+  pokeHp.innerText = pokemon.stats[0].base_stat;
+  pokeAttack.innerText = pokemon.stats[1].base_stat;
+  pokeDefense.innerText = pokemon.stats[2].base_stat;
+  pokeSpAttack.innerText = pokemon.stats[3].base_stat;
+  pokeSpDefense.innerText = pokemon.stats[4].base_stat;
+  pokeSpeed.innerText = pokemon.stats[5].base_stat;   
+};
+
+srcBtn.addEventListener("click", () => {
+  userInput = input.value.toLowerCase();
+  fetchPokeStats(userInput);
+});
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    userInput = input.value.toLowerCase();
+    fetchPokeStats(userInput);
+  };
+});

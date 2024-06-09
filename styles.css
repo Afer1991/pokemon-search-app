@@ -3,19 +3,29 @@
   padding: 0;
 }
 
+:root {
+  --background: #000500;
+  --container: #FD151B;
+  --button: #FFB30F;
+  --text: #F4F4F8;
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Raleway";
+  background: var(--background);
 }
 
 h1 {
   margin: 25px 0;
+  color: var(--text);
 }
 
 .container {
   border: 2px solid black;
+  background: var(--container);
   width: 450px;
   height: 800px;
   border-radius: 25px;
@@ -26,6 +36,8 @@ h1 {
 .container > p {
   text-align: center;
   margin-bottom: 12px;
+  color: var(--background);
+  font-weight: bolder;
 }
 
 .input-container {
@@ -42,14 +54,14 @@ h1 {
 #search-button {
   padding: 12px 18px;
   border-radius: 24px;
-  color: #FFF;
-  background: rebeccapurple;
+  color: var(--background);
+  background: var(--button);
   border: none;
   font-size: 1rem;
 }
 
 .pokemon-container {
-  background: lightgrey;
+  background: var(--text);
   width: 100%;
   height: 300px;
   margin: 12px 0;
@@ -87,18 +99,100 @@ img {
 
 .type {
   width: 75px;
-  background: white;
   text-align: center;
-  padding: 8px 0;
+  padding: 8px;
   border-radius: 8px;
+  font-weight: bolder;
 }
 
 .grass {
-  background: green;
+  background: #399E5A;
+  color: #FFF;
 }
 
 .poison {
-  background: violet;
+  background: #C45BAA;
+  color: #FFF;
+}
+
+.fire {
+  background: #FF7F11;
+  color: #000;
+}
+
+.water {
+  background: #009FFD;
+  color: #FFF;
+}
+
+.bug {
+  background: #A5B452;
+  color: #000;
+}
+
+.flying {
+  background: #7F7EFF;
+  color: #FFF;
+}
+
+.normal {
+  background: #BDBBB0;
+  color: #000;
+}
+
+.electric {
+  background: #FFD400;
+  color: #000;
+}
+
+.ground {
+  background: #B88B4A;
+  color: #000;
+}
+
+.fairy {
+  background: #F786AA;
+  color: #000;
+}
+
+.fighting {
+  background: #C2847A;
+  color: #FFF;
+}
+
+.psychic {
+  background: #C45BAA;
+  color: #000;
+}
+
+.rock {
+  background: #7C3626;
+  color: #FFF;
+}
+
+.steel {
+  background: #9AA0A8;
+  color: #FFF;
+}
+
+.ice {
+  background: #92DCE5;
+  color: #000;
+}
+
+.ghost {
+  background: #7B6D8D;
+  color: #FFF;
+}
+
+.dragon {
+  background: #966B9D;
+  color: #FFF;
+}
+
+.dark {
+  background: #000;
+  color: #FFF;
 }
 
 .stats {
@@ -109,9 +203,9 @@ img {
 }
 
 .stats div {
-  background: rebeccapurple;
+  background: var(--background);
   text-align: center;
-  color: #FFF;
+  color: var(--text);
   padding: 12px 0;
 }
 

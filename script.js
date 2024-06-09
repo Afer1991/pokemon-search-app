@@ -29,9 +29,9 @@ const returnPokeStats = (pokemon) => {
   pokeId.innerText = `#${pokemon.id}`;
   pokeWgt.innerText = `Weight: ${pokemon.weight}`;
   pokeHgt.innerText = `Height: ${pokemon.height}`;
-  imgContainer.innerHTML = `<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" id=""sprite>`;
-  pokeTypes.innerHTML = `<div class="type ${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</div>
-                           ${pokemon.types[1] != undefined ? `<div class=\"type ${pokemon.types[1].type.name}\">${pokemon.types[1].type.name}</div>`
+  imgContainer.innerHTML = `<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" id="sprite">`;
+  pokeTypes.innerHTML = `<div class="type ${pokemon.types[0].type.name}">${pokemon.types[0].type.name.toUpperCase()}</div>
+                           ${pokemon.types[1] != undefined ? `<div class=\"type ${pokemon.types[1].type.name}\">${pokemon.types[1].type.name.toUpperCase()}</div>`
                                                         : ""}`;
   pokeHp.innerText = pokemon.stats[0].base_stat;
   pokeAttack.innerText = pokemon.stats[1].base_stat;

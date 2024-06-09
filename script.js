@@ -29,7 +29,7 @@ const returnPokeStats = (pokemon) => {
   pokeId.innerText = `#${pokemon.id}`;
   pokeWgt.innerText = `Weight: ${pokemon.weight}`;
   pokeHgt.innerText = `Height: ${pokemon.height}`;
-  imgContainer.innerHTML = `<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">`;
+  imgContainer.innerHTML = `<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" id=""sprite>`;
   pokeTypes.innerHTML = `<div class="type ${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</div>
                            ${pokemon.types[1] != undefined ? `<div class=\"type ${pokemon.types[1].type.name}\">${pokemon.types[1].type.name}</div>`
                                                         : ""}`;
@@ -42,13 +42,13 @@ const returnPokeStats = (pokemon) => {
 };
 
 srcBtn.addEventListener("click", () => {
-  userInput = input.value.toLowerCase();
+  let userInput = input.value.toLowerCase();
   fetchPokeStats(userInput);
 });
 
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    userInput = input.value.toLowerCase();
+    let userInput = input.value.toLowerCase();
     fetchPokeStats(userInput);
   };
 });
